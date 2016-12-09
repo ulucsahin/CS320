@@ -1,0 +1,12 @@
+roomDBxml i C nin içine atýn. kodda öyle. yada isterseniz kodu deðiþtirin.
+
+src deki "roomDBxml" bir iþe yaramýyor þuan.
+
+xml de alt tarafta students lar var. onlar gereksiz gibi. 
+
+koda daha eklemeler yapacam.  Room getRoom(....)  , Building getBuilding(....) tarzý.
+
+diðer classlarda da bazý þeyleri deðiþtirmiþ olabilirim.
+
+
+
