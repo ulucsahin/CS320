@@ -1,0 +1,11 @@
+roomDBxml i C nin içine atýn. kodda öyle. yada isterseniz kodu deðiþtirin.
+
+src deki "roomDBxml" bir iþe yaramýyor þuan.
+
+diðer classlarda da bazý þeyleri deðiþtirmiþ olabilirim.
+
+timeInterval kýsmýnda DB de ne tutacam, nasýl döndürcem o bende net deðil.
+o yüzden þimdilik 0 dönüyor.
+
+
+
