@@ -50,15 +50,13 @@ DBGetter adder;
 					
 				Student stud = new Student(name,surname,username,password);
 				
-				//System.out.println("name: " + name + " surname : " + surname + " username: " + username + " password " + password);
-				
 				adder.addStudent(stud);
 			}
 			
 		}
 		catch(Exception e)
 		{
-			System.out.println("ananın amı galatasaray");
+			System.out.println("Unable to parse student data.");
 		}
 	}
 }
