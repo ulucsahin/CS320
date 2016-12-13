@@ -22,7 +22,7 @@ public class XMLParser {
 		File xmlFile = null;
 		try 
 		{
-			xmlFile = new File("c:\\roomDBxml.xml");
+			xmlFile = new File("data/roomDBxml.xml");
 		}
 		catch(Exception e)
 		{
