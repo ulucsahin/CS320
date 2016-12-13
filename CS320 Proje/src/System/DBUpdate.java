@@ -13,7 +13,7 @@ import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
 public class DBUpdate {
-	private final String FILE = "c:\\roomDBxml.xml";
+	private final String FILE = "data\roomDBxml.xml";
 	private final String RESERVATION_ID = "reservationID";
 	private final String RESERVATIONS = "Reservations";
 	private final String ID = "ID";
