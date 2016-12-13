@@ -8,11 +8,15 @@ import java.util.ArrayList;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+<<<<<<< HEAD
 import System.Room;
 
 public class LoginView extends AbstractView{
 	private MainView mainView;
 	
+=======
+public class LoginView extends AbstractView{
+>>>>>>> origin/Eren
 	protected JTextField loginField;
 	protected JPasswordField passwordField;
 	
@@ -25,6 +29,7 @@ public class LoginView extends AbstractView{
 	private static int Y_INTERVAL = MainView.DEFAULT_Y_SIZE/9;
 	private static int TEXT_DISTANCE = 10;
 	
+<<<<<<< HEAD
 	public LoginView(MainView view){
 		this.mainView = view;
 		initializeUserNameTextField();
@@ -33,17 +38,25 @@ public class LoginView extends AbstractView{
 	}
 	
 	private void initializeUserNameTextField(){
+=======
+	public LoginView(){		
+>>>>>>> origin/Eren
 		loginField = new JTextField();
 		loginField.setBackground(Color.CYAN);
 		loginField.setLocation(X_START_LOCATION, Y_START_LOCATION);
 		loginField.setSize(X_WIDTH,Y_WIDTH);
+<<<<<<< HEAD
 	}
 	
 	private void initializePasswordTextField(){
+=======
+		
+>>>>>>> origin/Eren
 		passwordField = new JPasswordField();
 		passwordField.setBackground(Color.CYAN);
 		passwordField.setLocation(X_START_LOCATION, Y_START_LOCATION+Y_INTERVAL);
 		passwordField.setSize(X_WIDTH, Y_WIDTH);
+<<<<<<< HEAD
 	}
 	
 	private void initializeLoginButton(){
@@ -70,6 +83,11 @@ public class LoginView extends AbstractView{
 
 	public void paint(Graphics g) {
 		super.paint(g);
+=======
+	}
+
+	public void paint(Graphics g) {
+>>>>>>> origin/Eren
 		g.setFont(new Font("Courier",Font.BOLD,20));
 		g.setColor(Color.DARK_GRAY);
 		

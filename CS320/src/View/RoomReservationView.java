@@ -3,10 +3,14 @@ package View;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
+<<<<<<< HEAD
 import System.Room;
 
 public class RoomReservationView extends AbstractView {
 	
+=======
+public class RoomReservationView extends AbstractView {
+>>>>>>> origin/Eren
 
 	public void paint(Graphics g) {
 	}

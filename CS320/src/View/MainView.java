@@ -42,6 +42,7 @@ public class MainView extends JPanel {
 	}
 	
 	public void paintComponent(Graphics g){
+<<<<<<< HEAD
 		g.setColor(Color.white);
 		g.fillRect(0, 0, 1000, 1000);
 		if(currentView != null){
@@ -59,6 +60,11 @@ public class MainView extends JPanel {
 		if(loginView.passwordField != null){
 			loginView.passwordField.revalidate();
 		}
+=======
+		if(currentView != null){
+			currentView.paint(g);
+		}
+>>>>>>> origin/Eren
 	}
 	
 	public void switchToLoginScreen(){

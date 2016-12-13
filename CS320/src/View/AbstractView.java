@@ -15,6 +15,7 @@ public abstract class AbstractView {
 
 	public void mouseMoved(int x,int y){
 		for(ClickableButton b : buttons){
+<<<<<<< HEAD
 			b.mouseMoved(x, y);
 		}
 	}
@@ -25,4 +26,14 @@ public abstract class AbstractView {
 		}
 	}
 	
+=======
+			b.m
+		}
+	}
+	public void mousePressed(int x,int y){
+		for(ClickableButton b : buttons){
+			b.mouseClicked(x, y);
+		}
+	}
+>>>>>>> origin/Eren
 }
