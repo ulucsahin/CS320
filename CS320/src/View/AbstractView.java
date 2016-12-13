@@ -15,12 +15,14 @@ public abstract class AbstractView {
 
 	public void mouseMoved(int x,int y){
 		for(ClickableButton b : buttons){
-			b.m
+			b.mouseMoved(x, y);
 		}
 	}
+	
 	public void mousePressed(int x,int y){
 		for(ClickableButton b : buttons){
-			b.mouseClicked(x, y);
+			b.mousePressed(x, y);
 		}
 	}
+	
 }

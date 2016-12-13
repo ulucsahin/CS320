@@ -13,6 +13,10 @@ public class Student {
 		this.password=password;
 	}
 	
+	public String getPassword(){
+		return password;
+	}
+	
 	public String getStudentInfo(){
 		return "name: " + name + " surname: " + surname + " username: " + username + " password: " + password; 
 	}

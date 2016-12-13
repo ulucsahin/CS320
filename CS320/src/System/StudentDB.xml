@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StudentData>
+<Students>
+
+	<Student>
+		<name>Melih</name>
+		<surname>Arıcı</surname>
+		<username>ma4031</username>
+		<password>1234</password>
+	</Student>
+
+	<Student>
+		<name>Kaan</name>
+		<surname>Kırlı</surname>
+		<username>kk5131</username>
+		<password>1234</password>
+	</Student>
+	
+	<Student>
+		<name>Doruk</name>
+		<surname>Çelebi</surname>
+		<username>dc5555</username>
+		<password>1234</password>
+	</Student>
+	
+	<Student>
+		<name>Eren</name>
+		<surname>Balatkan</surname>
+		<username>eb3131</username>
+		<password>1234</password>
+	</Student>
+	
+	<Student>
+		<name>Arda</name>
+		<surname>Mutlu</surname>
+		<username>am4055</username>
+		<password>1234</password>
+	</Student>
+
+</Students>
+</StudentData>

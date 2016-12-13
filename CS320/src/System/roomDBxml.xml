@@ -14,25 +14,15 @@
 				<Reservations>
 				<Reservation>
 					<reservationID>1</reservationID>
-					<timeInterval>1-4</timeInterval>
-					<Student>
-						<name>Melih</name>
-						<surname>Arıcı</surname>
-						<username>ma4031</username>
-						<password>1234</password>
-					</Student>
+					<timeInterval>1</timeInterval>
+					<username>ma4031</username>
 				</Reservation>
 				<Reservation>
 					<reservationID>2</reservationID>
-					<timeInterval>1-4</timeInterval>
-					<Student>
-						<name>Kaan</name>
-						<surname>Kırlı</surname>
-						<username>kk5131</username>
-						<password>1234</password>
-					</Student>
+					<timeInterval>4</timeInterval>
+					<username>kk5131</username>
 				</Reservation>
-			</Reservations>
+				</Reservations>
 			</Room>
 			<Room> 
 				<ID>EF.225.B</ID>
@@ -41,13 +31,8 @@
 				<Reservations>
 				<Reservation>
 					<reservationID>3</reservationID>
-					<timeInterval>1-4</timeInterval>
-					<Student>
-						<name>Doruk</name>
-						<surname>Çelebi</surname>
-						<username>dc5555</username>
-						<password>1234</password>
-					</Student>
+					<timeInterval>3</timeInterval>
+					<username>dc5555</username>
 				</Reservation>
 				
 			</Reservations>

@@ -1,17 +1,24 @@
 package View;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.RepaintManager;
 
+import Controller.MainController;
 import System.Building;
+import System.Room;
 
 public class MainView extends JPanel {
 	protected static final int DEFAULT_X_SIZE = 700;
 	protected static final int DEFAULT_Y_SIZE = 700;
+	
+	MainController controller;
 	
 	public static void main(String[] args){
 		MainView view = new MainView();
@@ -20,7 +27,6 @@ public class MainView extends JPanel {
 	JFrame frame;
 	
 	AbstractView currentView;
-	static BuildingMapView buildingMapView;
 	static LoginView loginView;
 	static RoomReservationView roomReservationView;
 	
@@ -31,9 +37,27 @@ public class MainView extends JPanel {
 		switchToLoginScreen();
 	}
 	
+	public void attachController(MainController controller){
+		this.controller = controller;
+	}
+	
 	public void paintComponent(Graphics g){
+		g.setColor(Color.white);
+		g.fillRect(0, 0, 1000, 1000);
 		if(currentView != null){
 			currentView.paint(g);
+		}
+		if(currentView != null && currentView.equals(loginView)){
+			validateTextFields();
+		}
+	}
+	
+	private void validateTextFields(){
+		if(loginView.loginField != null){
+			loginView.loginField.revalidate();
+		}
+		if(loginView.passwordField != null){
+			loginView.passwordField.revalidate();
 		}
 	}
 	
@@ -45,17 +69,14 @@ public class MainView extends JPanel {
 		
 	}
 	
-	private void detachTextFields(){
+	protected void detachTextFields(){
 		this.remove(loginView.loginField);
 		this.remove(loginView.passwordField);
 	}
 	
-	public void switchToReservationScreen(Building b){
-		
-	}
-	
-	public void switchToMapScreen(){
-		
+	public void switchToReservationScreen(ArrayList<Room> rooms){
+		this.roomReservationView.buildRooms(rooms);
+		this.currentView = roomReservationView;
 	}
 	
 	private void initializeFrame(){
@@ -69,8 +90,7 @@ public class MainView extends JPanel {
 	}
 	
 	private void initializeViews(){
-		buildingMapView = new BuildingMapView();
-		loginView = new LoginView();
+		loginView = new LoginView(this);
 		roomReservationView = new RoomReservationView();
 	}
 	
@@ -94,12 +114,14 @@ class MainViewMouseListener extends MouseAdapter{
 		int x_cor = e.getX();
 		int y_cor = e.getY();
 		view.currentView.mousePressed(x_cor, y_cor);
+		view.repaint();
 	}
 	
 	public void mouseMoved(MouseEvent e){
 		int x_cor = e.getX();
 		int y_cor = e.getY();
 		view.currentView.mouseMoved(x_cor, y_cor);
+		view.repaint();
 	}
 	
 }

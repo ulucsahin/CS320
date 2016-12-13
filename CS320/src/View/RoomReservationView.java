@@ -1,10 +1,18 @@
 package View;
 
 import java.awt.Graphics;
+import java.util.ArrayList;
+
+import System.Room;
 
 public class RoomReservationView extends AbstractView {
+	
 
 	public void paint(Graphics g) {
+	}
+	
+	public void buildRooms(ArrayList<Room> rooms){
+		//TODO fix dis shit
 	}
 
 	public void mouseMoved(int x, int y) {

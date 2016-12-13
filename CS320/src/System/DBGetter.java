@@ -5,13 +5,32 @@ import java.util.ArrayList;
 public class DBGetter {
 
 	ArrayList<Building> buildings;
+	ArrayList<Student> students;
+	
+	public ArrayList<Building> getBuildings(){
+		return buildings;
+	}
 	
 	public DBGetter(){
 		buildings = new ArrayList<Building>();
+		students  = new ArrayList<Student>(); 
+		StudentGetter sgetter = new StudentGetter(this);
+		XMLParser parser = new XMLParser(this);
+		parser.run();
+		sgetter.run();
 	}
 	
 	public void addBuilding(Building building){
 		buildings.add(building);
+	}
+	
+	public void addStudent(Student student){
+		students.add(student);
+	}
+	
+	public void removeStudent(Student student)
+	{
+		buildings.remove(student);
 	}
 	
 	public Building newBuilding(String buildingID, String name, Room[] rooms){
@@ -32,8 +51,8 @@ public class DBGetter {
 		return room;
 	}
 	
-	public Reservation newReservation(int timeInterval, Student student, int reservationID){
-		return new Reservation(timeInterval,student, reservationID);
+	public Reservation newReservation(int timeInterval, String username, int reservationID){
+		return new Reservation(timeInterval, username, reservationID);
 	}
 	
 	public Student newStudent(String name, String surname, String username, String password){
@@ -82,15 +101,10 @@ public class DBGetter {
 	public Student getStudent(String username)
 	{
 		Student requested = null;
-		for(int i=0; i < buildings.size(); i++){
-			ArrayList<Room> rooms = buildings.get(i).getRooms();
-			for(int j=0; j < rooms.size(); j++){
-				ArrayList<Reservation> reservations = rooms.get(j).getReservations();
-				for(int k=0; k < reservations.size(); k++){
-					if(reservations.get(k).getStudent().getUsername().equals(username))
-						requested = reservations.get(k).getStudent();
-				}
-			}
+		for(int i=0; i < students.size(); i++)
+		{
+			if(students.get(i).getUsername().equals(username))
+				requested = students.get(i);
 		}
 		return requested;
 	}

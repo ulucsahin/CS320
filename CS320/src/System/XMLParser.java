@@ -66,18 +66,11 @@ public class XMLParser {
 						Element reservation = (Element) reservationList.get(l);
 						String timeInterval = reservation.getChildText("timeInterval");
 						String reservationID = reservation.getChildText("reservationID");	
+						String username = reservation.getChildText("username");
 							
-						Element student = reservation.getChild("Student");
-						String name = student.getChildText("name");
-						String surname = student.getChildText("surname");
-						String username = student.getChildText("username");
-						String password = student.getChildText("password");
-							
-						Student stud = new Student(name,surname,username,password);
-											
-						int timeInv = 0; // şimdilik böyle sonra düzeltilecek
+						int timeInv = Integer.valueOf(timeInterval);
 						int resID = Integer.valueOf(reservationID);
-						Reservation res = new Reservation(timeInv,stud,resID);
+						Reservation res = new Reservation(timeInv, username, resID);
 							
 						r.addReservation(res);
 					}

@@ -3,11 +3,11 @@ package System;
 public class Reservation {
 	private int reservationID;
 	private int timeInterval;
-	private Student student;
+	private String username;
 	
-	public Reservation(int timeInterval,Student student, int reservationID) {
+	public Reservation(int timeInterval,String username, int reservationID) {
 		this.timeInterval=timeInterval;
-		this.student=student;
+		this.username = username;
 		this.reservationID = reservationID;
 	}
 
@@ -20,8 +20,8 @@ public class Reservation {
 		return timeInterval;
 	}
 
-	public Student getStudent() {
-		return student;
+	public String  getUsername() {
+		return username;
 	}
 	
 	
