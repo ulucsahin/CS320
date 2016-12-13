@@ -4,14 +4,18 @@ import System.Student;
 
 public class LoginController {
 		
-		DBGetter dbgetter = new DBGetter();
+		private DBGetter dbgetter = new DBGetter();
 	
-		public void login(String username, String password){
+		public boolean login(String username, String password){
 			Student tempStudent = dbgetter.getStudent(username);
 			if(tempStudent.getPassword() == password){
-				System.out.println("Login succesfull.");
+				return true;
 			}else{
-				System.out.println("Login failed.");
+				return false;
 			}
 		} 
+		
+		public Student getLoggedInUser(String username){
+			return dbgetter.getStudent(username);
+		}
 }

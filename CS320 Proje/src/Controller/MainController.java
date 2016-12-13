@@ -15,8 +15,8 @@ public class MainController {
 		roomController = new RoomController();
 	}
 	
-	public void login(String username, String password){
-		loginController.login(username, password);
+	public boolean login(String username, String password){
+		return loginController.login(username, password);
 	}
 	
 	public ArrayList<Room> getRooms(){
