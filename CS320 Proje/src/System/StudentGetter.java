@@ -23,7 +23,7 @@ DBGetter adder;
 		File xmlFile = null;
 		try 
 		{
-			xmlFile = new File("c:\\studentDB.xml");
+			xmlFile = new File("data/studentDB.xml");
 		}
 		catch(Exception e)
 		{
