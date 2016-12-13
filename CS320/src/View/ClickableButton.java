@@ -1,5 +1,6 @@
 package View;
 
+<<<<<<< HEAD
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -17,10 +18,18 @@ public abstract class ClickableButton {
 		this.x_width = x_width;
 		this.y_width = y_width;
 	}
+=======
+import java.awt.Graphics;
+import java.awt.Rectangle;
+
+public abstract class ClickableButton {
+	private int x,y,x_width,y_width;
+>>>>>>> origin/Eren
 	
 	abstract void paint(Graphics g);
 	
 	protected void mouseMoved(int x,int y){
+<<<<<<< HEAD
 		Rectangle mouseArea = new Rectangle(this.x,this.y,x_width,y_width);
 		
 		if(mouseArea.contains(x, y)){
@@ -29,6 +38,9 @@ public abstract class ClickableButton {
 		else{
 			isMouseOnTop = false;
 		}
+=======
+		
+>>>>>>> origin/Eren
 	}
 	
 	protected void mousePressed(int x,int y){
@@ -43,6 +55,7 @@ public abstract class ClickableButton {
 	
 
 }
+<<<<<<< HEAD
 
 class LoginButton extends ClickableButton{
 	
@@ -123,3 +136,5 @@ class ReservationButton extends ClickableButton{
 	
 	
 }
+=======
+>>>>>>> origin/Eren
