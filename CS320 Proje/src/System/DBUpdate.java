@@ -51,7 +51,7 @@ public class DBUpdate {
 			Element newReservationXML = new Element("Reservation");
 			newReservationXML.addContent(new Element(RESERVATION_ID).setText(reservation.getReservationID() + ""));
 			newReservationXML.addContent(new Element("timeInterval").setText(reservation.getTimeInterval() + ""));
-			newReservationXML.addContent(new Element("username").setText(reservation.getStudent().getUsername() + ""));
+			newReservationXML.addContent(new Element("username").setText(reservation.getUsername() + ""));
 			reservations.addContent(newReservationXML);
 			success = true;
 		}
