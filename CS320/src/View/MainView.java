@@ -32,7 +32,9 @@ public class MainView extends JPanel {
 	}
 	
 	public void paintComponent(Graphics g){
-		currentView.paint(g);
+		if(currentView != null){
+			currentView.paint(g);
+		}
 	}
 	
 	public void switchToLoginScreen(){
