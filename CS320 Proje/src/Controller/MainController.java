@@ -28,8 +28,8 @@ public class MainController {
 		reservationController.reserveRoom(userID, buildingID, RoomID, timeInterval);
 	}
 	
-	public void reserveRoom(String userID, String RoomID, int timeInterval) {
-		reservationController.reserveRoom(userID, RoomID, timeInterval);
+	public Reservation reserveRoom(String userID, String RoomID, int timeInterval) {
+		return reservationController.reserveRoom(userID, RoomID, timeInterval);
 	}
 
 	public void removeReservation(int buildingID, String RoomID, Reservation reservation) {

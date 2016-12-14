@@ -1,6 +1,7 @@
 package Controller;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import System.Building;
 import System.DBGetter;
@@ -12,7 +13,12 @@ public class ReservationController {
 
 	final private DBUpdate dbupdate = new DBUpdate();
 	DBGetter dbGetter = new DBGetter();
-	private int reservationID = 10;
+	private int reservationID;
+	
+	public ReservationController(){
+		Random rand = new Random();
+		reservationID = rand.nextInt(999999);
+	}
 
 	public void reserveRoom(String userID, int buildingID, String RoomID, int timeInterval) {
 		Reservation reservation = new Reservation(timeInterval, userID, reservationID);
@@ -20,7 +26,7 @@ public class ReservationController {
 		dbupdate.addReservation(buildingID, RoomID, reservation);
 	}
 	
-	public void reserveRoom(String userID, String RoomID, int timeInterval) {
+	public Reservation reserveRoom(String userID, String RoomID, int timeInterval) {
 		Reservation reservation = new Reservation(timeInterval, userID, reservationID);
 		reservationID++;
 		
@@ -34,6 +40,7 @@ public class ReservationController {
 				}
 			}
 		}
+		return reservation;
 	}
 
 	public void removeReservation(int buildingID, String RoomID, Reservation reservation) {
@@ -48,7 +55,8 @@ public class ReservationController {
 			for(int i = 0; i<rooms.size();i++){
 				ArrayList<Reservation> reservations = rooms.get(i).getReservations();
 				for(int j = 0; j<reservations.size(); j++){
-					if(reservations.get(j).getReservationID() == reservation.getReservationID()){
+					if(reservations.get(j).getReservationID() == reservation.getReservationID() 
+							&&reservations.get(j).getTimeInterval() == reservation.getTimeInterval()){
 						removeReservation(Integer.parseInt(buildings.get(buildingNo).getBuildingID()),rooms.get(i).getRoomID(),reservation);
 					}
 				}
