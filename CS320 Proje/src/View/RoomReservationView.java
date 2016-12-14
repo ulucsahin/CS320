@@ -14,6 +14,8 @@ public class RoomReservationView extends AbstractView {
 	private final static int COLUMN_INTERVAL = 45 , ROW_INTERVAL = 30;
 	private ArrayList<Room> rooms;
 	
+	private static int resId= 100;
+	
 	private boolean[][] mouseLocation = new boolean[13][PAGE_ROOM_COUNT];
 	private Reservation[][] reservations = new Reservation[13][PAGE_ROOM_COUNT];
 	
@@ -34,6 +36,9 @@ public class RoomReservationView extends AbstractView {
 	public void buildRooms(ArrayList<Room> rooms){
 		this.rooms = rooms;
 		PAGE_ROOM_COUNT = rooms.size();
+		reservations = new Reservation[13][PAGE_ROOM_COUNT];
+		mouseLocation = new boolean[13][PAGE_ROOM_COUNT];
+		cleanReservationsArray();
 		
 		for(int i = 0;i<rooms.size();i++){
 			ArrayList<Reservation> reservations = rooms.get(i).getReservations();
@@ -93,14 +98,16 @@ public class RoomReservationView extends AbstractView {
 	
 	private int countReservations(){
 		int count = 0;
-		for(int i = 0;i<rooms.size();i++){
-			ArrayList<Reservation> reservations = rooms.get(i).getReservations();
-			for(int j=0; j<reservations.size();j++){
-				if(reservations.get(j).getUsername().equals(view.loginView.loggedInUsername)){
+		
+		for(int i = 0;i<this.reservations.length;i++){
+			for(int j=0;j<this.reservations[0].length;j++){
+				if(reservations[i][j] != null &&
+						reservations[i][j].getUsername().equals(this.view.loginView.loggedInUsername)){
 					count++;
 				}
 			}
 		}
+		System.out.println(count);
 		return count;
 	}
 	
@@ -179,13 +186,15 @@ public class RoomReservationView extends AbstractView {
 				Reservation rew = reservations[xNew][yNew];
 				if(rew.getUsername().equals(this.view.loginView.loggedInUsername)){
 					this.view.controller.removeReservation(reservations[xNew][yNew]);
-					this.updateRooms();
+					this.reservations[xNew][yNew] = null;
+					//this.updateRooms();
 				}
 			}
 			else{
 				if(countReservations() < 3){
-					this.view.controller.reserveRoom(this.view.loginView.loginField.getText().trim(), this.rooms.get(yNew).getRoomID(), xNew);
-					this.updateRooms();
+					resId++;
+					this.reservations[xNew][yNew] = this.view.controller.reserveRoom(this.view.loginView.loginField.getText().trim(), this.rooms.get(yNew).getRoomID(), xNew);
+					//this.updateRooms();
 				}
 			}
 		}
