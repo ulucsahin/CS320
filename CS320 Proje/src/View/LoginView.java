@@ -27,6 +27,10 @@ public class LoginView extends AbstractView{
 	private static int Y_INTERVAL = MainView.DEFAULT_Y_SIZE/9;
 	private static int TEXT_DISTANCE = 10;
 	
+	private int loginCondition = 0;
+	private static final int LOGIN_FAILED = 1;
+	private static final int LOGIN_EMPTY = 2;
+	
 	public LoginView(MainView view){
 		this.mainView = view;
 		initializeUserNameTextField();
@@ -69,6 +73,14 @@ public class LoginView extends AbstractView{
 			mainView.switchToReservationScreen();
 			this.loggedInUsername = username;
 		}
+		else{
+			if(username.length() <1){
+				loginCondition = LOGIN_EMPTY;
+			}
+			else{
+				loginCondition = LOGIN_FAILED;
+			}
+		}
 		
 	}
 
@@ -79,6 +91,15 @@ public class LoginView extends AbstractView{
 		
 		g.drawString("Username", X_START_LOCATION, Y_START_LOCATION-TEXT_DISTANCE);
 		g.drawString("Password", X_START_LOCATION, Y_START_LOCATION+Y_INTERVAL-TEXT_DISTANCE);
+		
+
+		g.setColor(Color.red);
+		if(loginCondition == LOGIN_EMPTY){
+			g.drawString("ENTER USERNAME AND PASSWORD", 170, 350);
+		}
+		else if(loginCondition == LOGIN_FAILED){
+			g.drawString("INCORRECT USERNAME OR PASSWORD", 170, 350);
+		}
 	}
 
 	public void mouseMoved(int x, int y) {
