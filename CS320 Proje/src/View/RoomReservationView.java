@@ -20,6 +20,7 @@ public class RoomReservationView extends AbstractView {
 	private int currentPageNo = 0;
 	private int pageCount;
 	
+	
 	MainView view;
 	
 	public RoomReservationView(MainView view){
@@ -93,7 +94,12 @@ public class RoomReservationView extends AbstractView {
 	private int countReservations(){
 		int count = 0;
 		for(int i = 0;i<rooms.size();i++){
-			count += rooms.get(i).getReservations().size();
+			ArrayList<Reservation> reservations = rooms.get(i).getReservations();
+			for(int j=0; j<reservations.size();j++){
+				if(reservations.get(j).getUsername().equals(view.loginView.loggedInUsername)){
+					count++;
+				}
+			}
 		}
 		return count;
 	}
