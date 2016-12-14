@@ -20,10 +20,6 @@ public class MainView extends JPanel {
 	
 	MainController controller;
 	
-	public static void main(String[] args){
-		MainView view = new MainView();
-	}
-	
 	JFrame frame;
 	
 	AbstractView currentView;
@@ -34,6 +30,9 @@ public class MainView extends JPanel {
 		initializeFrame();
 		initializeViews();
 		connectMouseListener();
+	}
+	
+	public void start(){
 		switchToLoginScreen();
 	}
 	
@@ -74,9 +73,10 @@ public class MainView extends JPanel {
 		this.remove(loginView.passwordField);
 	}
 	
-	public void switchToReservationScreen(ArrayList<Room> rooms){
-		this.roomReservationView.buildRooms(rooms);
+	public void switchToReservationScreen(){
+		roomReservationView.buildRooms(controller.getRooms());
 		this.currentView = roomReservationView;
+		repaint();
 	}
 	
 	private void initializeFrame(){
@@ -87,11 +87,12 @@ public class MainView extends JPanel {
 		this.setSize(DEFAULT_X_SIZE, DEFAULT_Y_SIZE);
 		this.setLayout(null);
 		frame.add(this);
+		frame.setResizable(false);
 	}
 	
 	private void initializeViews(){
 		loginView = new LoginView(this);
-		roomReservationView = new RoomReservationView();
+		roomReservationView = new RoomReservationView(this);
 	}
 	
 	private void connectMouseListener(){

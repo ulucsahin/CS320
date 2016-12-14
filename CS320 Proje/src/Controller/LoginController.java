@@ -8,7 +8,7 @@ public class LoginController {
 	
 		public boolean login(String username, String password){
 			Student tempStudent = dbgetter.getStudent(username);
-			if(tempStudent.getPassword() == password){
+			if(tempStudent != null && tempStudent.getPassword().equals(password)){
 				return true;
 			}else{
 				return false;

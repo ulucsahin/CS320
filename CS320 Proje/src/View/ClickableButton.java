@@ -32,7 +32,7 @@ public abstract class ClickableButton {
 	}
 	
 	protected void mousePressed(int x,int y){
-		Rectangle mouseArea = new Rectangle(x,y,x_width,y_width);
+		Rectangle mouseArea = new Rectangle(this.x,this.y,x_width,y_width);
 		
 		if(mouseArea.contains(x, y)){
 			doAction();
@@ -93,6 +93,14 @@ class RoomButton extends ClickableButton{
 		super(x, y, x_width, y_width);
 		this.room = room;
 	}
+	
+	private void initializeReservations(){
+		reservations = new boolean[14];
+		
+		for(int i = 0;i<reservations.length;i++){
+			reservations[i] = false;
+		}
+	}
 
 	void paint(Graphics g) {	
 		g.setColor(new Color(100,100,255));
@@ -104,22 +112,4 @@ class RoomButton extends ClickableButton{
 
 	void doAction() {
 	}
-}
-
-class ReservationButton extends ClickableButton{
-	
-	public ReservationButton(Room room,int x, int y, int x_width, int y_width) {
-		super(x, y, x_width, y_width);
-	}
-	
-	Room room;
-	boolean isReserved;
-
-	void paint(Graphics g) {		
-	}
-	
-	void doAction() {
-	}
-	
-	
 }

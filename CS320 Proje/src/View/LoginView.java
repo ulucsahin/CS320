@@ -13,6 +13,8 @@ import System.Room;
 public class LoginView extends AbstractView{
 	private MainView mainView;
 	
+	protected String loggedInUsername;
+	
 	protected JTextField loginField;
 	protected JPasswordField passwordField;
 	
@@ -56,16 +58,18 @@ public class LoginView extends AbstractView{
 	}
 	
 	protected void login(){
-		String username = loginField.getText();
-		String password = new String(passwordField.getPassword());
+		String username = loginField.getText().trim();
+		String password = new String(passwordField.getPassword()).trim();
 		
-		boolean isLoginSuccesful = false;
+		
+		boolean isLoginSuccesful = this.mainView.controller.login(username, password);
 		
 		if(isLoginSuccesful){
 			mainView.detachTextFields();
-			ArrayList<Room> rooms = mainView.controller.getRooms();
-			mainView.switchToReservationScreen(rooms);
+			mainView.switchToReservationScreen();
+			this.loggedInUsername = username;
 		}
+		
 	}
 
 	public void paint(Graphics g) {

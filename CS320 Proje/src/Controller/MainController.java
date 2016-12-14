@@ -2,6 +2,7 @@ package Controller;
 
 import java.util.ArrayList;
 
+import System.Reservation;
 import System.Room;
 
 public class MainController {
@@ -21,6 +22,21 @@ public class MainController {
 	
 	public ArrayList<Room> getRooms(){
 		return roomController.getRooms();
+	}
+	
+	public void reserveRoom(String userID, int buildingID, String RoomID, int timeInterval) {
+		reservationController.reserveRoom(userID, buildingID, RoomID, timeInterval);
+	}
+	
+	public void reserveRoom(String userID, String RoomID, int timeInterval) {
+		reservationController.reserveRoom(userID, RoomID, timeInterval);
+	}
+
+	public void removeReservation(int buildingID, String RoomID, Reservation reservation) {
+		reservationController.removeReservation(buildingID, RoomID, reservation);
+	}
+	public void removeReservation(Reservation reservation){
+		reservationController.removeReservation(reservation);
 	}
 	
 }
